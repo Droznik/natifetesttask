@@ -1,5 +1,6 @@
 package com.example.giphyfornatife.data.api
 
+import com.example.giphyfornatife.ui.main.ITEMS_PER_PAGE_LIMIT
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
@@ -11,7 +12,7 @@ class ApiKeyInterceptor @Inject constructor(private val apiKey: String): Interce
             .url()
             .newBuilder()
             .addQueryParameter("api_key", apiKey)
-            .addQueryParameter("limit", 12.toString())
+            .addQueryParameter("limit", ITEMS_PER_PAGE_LIMIT.toString())
             .build()
         val request = chain.request()
             .newBuilder()

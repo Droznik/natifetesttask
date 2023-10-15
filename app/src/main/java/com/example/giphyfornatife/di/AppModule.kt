@@ -3,7 +3,7 @@ package com.example.giphyfornatife.di
 import android.content.Context
 import androidx.room.Room
 import com.example.giphyfornatife.data.api.ApiKeyInterceptor
-import com.example.giphyfornatife.data.api.GiphyApiImpl
+import com.example.giphyfornatife.data.api.GiphyApi
 import com.example.giphyfornatife.data.database.GifDb
 import dagger.Module
 import dagger.Provides
@@ -52,12 +52,12 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): GiphyApiImpl = retrofit.create(GiphyApiImpl::class.java)
+    fun provideApiService(retrofit: Retrofit): GiphyApi = retrofit.create(GiphyApi::class.java)
 
     @Provides
     @Singleton
     fun provideDb(@ApplicationContext appContext: Context): GifDb =
-        Room.databaseBuilder(appContext, GifDb::class.java, "deleted_gifs_database")
+        Room.databaseBuilder(appContext, GifDb::class.java, "gifs_database")
             .fallbackToDestructiveMigration()
             .build()
 

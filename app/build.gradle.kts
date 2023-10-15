@@ -9,6 +9,7 @@ android {
     namespace = "com.example.giphyfornatife"
     compileSdk = 32
 
+
     defaultConfig {
         applicationId = "com.example.giphyfornatife"
         minSdk = 24
@@ -28,12 +29,17 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
